@@ -7,7 +7,7 @@ enum MoveDir { RIGHT, DOWN, LEFT, UP }
 
 class Laser {
   Vector2 direction = Vector2(-1.0, 0.0);
-  double stepSize = 0.01;
+  double stepSize = 0.001;
   MoveDir moveDir = MoveDir.RIGHT;
 
   Laser();
@@ -15,7 +15,7 @@ class Laser {
   void roateStep() {
     switch (moveDir) {
       case MoveDir.RIGHT:
-        direction.x = min(roundToDecimal(direction.x + stepSize, 2), 1.0);
+        direction.x = min(roundToDecimal(direction.x + stepSize, 3), 1.0);
 
         if (direction.x == 1.0) {
           moveDir = MoveDir.DOWN;
@@ -23,7 +23,7 @@ class Laser {
         break;
 
       case MoveDir.DOWN:
-        direction.y = min(roundToDecimal(direction.y + stepSize, 2), 1.0);
+        direction.y = min(roundToDecimal(direction.y + stepSize, 3), 1.0);
 
         if (direction.y == 1.0) {
           moveDir = MoveDir.LEFT;
@@ -31,7 +31,7 @@ class Laser {
         break;
 
       case MoveDir.LEFT:
-        direction.x = max(roundToDecimal(direction.x - stepSize, 2), -1.0);
+        direction.x = max(roundToDecimal(direction.x - stepSize, 3), -1.0);
 
         if (direction.x == -1.0) {
           moveDir = MoveDir.UP;
@@ -39,7 +39,7 @@ class Laser {
         break;
 
       case MoveDir.UP:
-        direction.y = max(roundToDecimal(direction.y - stepSize, 2), -1.0);
+        direction.y = max(roundToDecimal(direction.y - stepSize, 3), -1.0);
 
         if (direction.y == -1.0) {
           moveDir = MoveDir.RIGHT;
