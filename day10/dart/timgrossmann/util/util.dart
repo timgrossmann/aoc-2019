@@ -54,8 +54,8 @@ Map<Asteroid, double> getasteroidsInDirection(
     */
 
     // make sure 0.6666... and 0.333 are not missed
-    double roundedX = roundToDecimal(vector2.x, 2);
-    double roundedY = roundToDecimal(vector2.y, 2);
+    double roundedX = roundToDecimal(vector2.x, 3);
+    double roundedY = roundToDecimal(vector2.y, 3);
 
     if ((direction.x == roundedX) && (direction.y == roundedY)) {
       inDirectionWithDistance.putIfAbsent(
